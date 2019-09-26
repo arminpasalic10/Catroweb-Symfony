@@ -87,6 +87,8 @@
                   class="plural">{{ "programs.likeWowDetailText"|transchoice(2, { '%persons%' : 2 }, "catroweb") }}</span>
             </a>
             <span id="program-like-counter" class="program-like-counter"></span>
+
+
           </div>
         </div>
         <div id="program-like-detail-container">&nbsp;</div>
@@ -195,6 +197,7 @@
           </button>
         </div>
 
+
         {% if not isIOSWebview() %}
         <div id="apk-generate" class="btn-container col-12 col-xl-6">
           <button class="btn btn-primary">
@@ -215,6 +218,13 @@
           <button class="btn btn-primary">
             <i class="program-big-button-icon mr-3 fab fa-android"></i>
             <span>{{ "apk.download"|trans({}, "catroweb") }}</span>
+          </button>
+        </div>
+
+        <div id="steal-program" class="btn-container stealer col-12 col-xl-6">
+          <button class="btn btn-danger">
+            <i class="like-round-icon-heart fas fa-bomb"></i>
+            <span>{{ "steal.stealBtn"|trans({}, "catroweb") }}</span>
           </button>
         </div>
       </div>
@@ -313,6 +323,8 @@
     </div>
     <div id="remix-graph-layer" class="modal-content"></div>
   </div>
+
+
 
   {% if  program.tags|length > 0  or program.extensions|length > 0 %}
     <div id="recommendations">
@@ -632,6 +644,29 @@
           }
         })
         return false
+      })
+    })
+
+    $(document).on('click', '#steal-program', function() {
+      $.ajax({
+        url : "{{ path('steal_program_action', { 'name' : program.name })}}",
+        type : 'get',
+        success: function(data) {
+          if(data.statusCode !== {{ constant('App\\Catrobat\\StatusCode::OK') }})
+          {
+            alert('Something went wrong. The program is probably already yours')
+          }
+          else
+          {
+            window.location.reload()
+            return
+          }
+
+        },
+        error : function()
+        {
+          alert('Something went terribly wrong. You might want to reconsider your life choices')
+        }
       })
     })
 

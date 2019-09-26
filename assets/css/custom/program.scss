@@ -76,6 +76,13 @@ h2
   }
 }
 
+/*#steal-program
+{
+ // margin-left: 25px;
+  padding-left:  100px;
+  //position: center;
+}*/
+
 .show
 {
   display: block;
@@ -248,6 +255,12 @@ h2
       }
     }
   }
+}
+
+.stealer
+{
+  margin-right: 150px;
+  float: left;
 }
 
 table td:nth-child(1)

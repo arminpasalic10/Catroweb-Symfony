@@ -786,4 +786,39 @@ class ProgramController extends AbstractController
       'image_base64' => null,
     ]);
   }
+
+  /**
+   * @Route("/program/steal/{name}", name="steal_program_action", methods={"GET"})
+   *
+   * @param string $name
+   * @param ProgramManager $program_manager
+   *
+   * @return Response
+   * @throws Exception
+   */
+  public function stealProgramAction($name, ProgramManager $program_manager)
+  {
+    $manager = $this->getDoctrine()->getManager();
+    $program = $program_manager->findOneByName($name);
+
+    if($program && $program->getUser() === $this->getUser())
+    {
+      return new JsonResponse(['statusCode' => StatusCode::INVALID_PARAM,
+                               'message' => $program->getUser()]);
+    }
+    else if($program && !($program->getUser() === $this->getUser()))
+    {
+      $program->setUser($this->getUser());
+      $manager->flush();
+      return new JsonResponse(['statusCode' => StatusCode::OK,
+                               'message' => $program->getUser()]);
+
+    }
+    else{
+      throw $this->createNotFoundException('Unable to find Project entity.');
+    }
+
+
+
+  }
 }
