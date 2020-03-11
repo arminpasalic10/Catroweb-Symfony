@@ -510,6 +510,14 @@ class User extends BaseUser implements LdapUserInterface
   }
 
   /**
+   * @return int
+   */
+  public function getProgramCount()
+  {
+    return count($this->programs);
+  }
+
+  /**
    * @return mixed
    */
   public function getFollowing()

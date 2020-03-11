@@ -86,6 +86,13 @@
         </li>
       {% endif %}
 
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('catrobat_follower') }}" id="btn-follow">
+          <i class="fas fa-user"></i>
+          <span>{{ 'menu.followersAndFollowing'|trans({}, "catroweb") }}</span>
+        </a>
+      </li>
+
     {% else %} {# login #}
       <li class="nav-item">
         <a class="nav-link" href="{{ url('login') }}" id="btn-login">

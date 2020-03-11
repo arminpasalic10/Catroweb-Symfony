@@ -64,12 +64,27 @@ deleteAllNotificationsButtonTitle: "Delete all"
 notificationsClearError: "Unable to mark notifications as read!"
 notificationsDeleteError: "Unable to delete notifications!"
 pleaseWait: "Please wait..."
+followError: "Unable to follow the desired user!"
+unfollowError: "Unable to unfollow the desired user!"
 
 indexPage:
   recommendedSection:
     info:
       title: 'What projects are recommended here?'
       description: 'The more reactions (Thumbs up, Smile ...) your project receives, the higher it appears in this list.'
+
+
+follower:
+  follows: Following
+  followers: Followers
+  follow: Follow
+  amountOfPrograms: Projects
+  username: User
+  followsMe: Follows me
+  yes: Yes
+  no: No
+  noFollowing: You are not following anybody currently
+  noFollowers: You have no followers currently
 
 programs:
   welcome:
@@ -581,6 +596,7 @@ menu:
   admin: Admin
   home: Home
   helpAndTutorials: Help & Tutorials
+  followersAndFollowing: Follower
 
 login:
   login: Login
@@ -848,6 +864,7 @@ catro-notifications:
   follow:
     title: 'New Follower!'
     message: 'User %user_link% follows you now.'
+    message2: '%user_link%'
   program-upload:
     title: 'New Project from someone you follow'
     message: 'User %user_link% created a new Project %program_link%'

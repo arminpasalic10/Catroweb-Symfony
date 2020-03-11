@@ -121,12 +121,12 @@ Feature: Sidebar should show amount of new notifications in form of a badge
       Given I log in as "Catrobat"
       And I am on "/app/user/2"
       And I wait for the page to be loaded
-      And I click "#follow-btn"
-      And I wait for the page to be loaded
+      And I click "#profile-follow-btn"
+      And I wait for AJAX to finish
       And I am on "/app/user/3"
       And I wait for the page to be loaded
-      And I click "#follow-btn"
-      And I wait for the page to be loaded
+      And I click "#profile-follow-btn"
+      And I wait for AJAX to finish
       Given I have a project with "url" set to "/app/project/1"
       And User "User" uploads the project
       And User "Drago" uploads the project
