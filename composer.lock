@@ -11593,16 +11593,16 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v4.5.0",
+            "version": "4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "7a6da5e3e7ad7c749dde806546a35d4d4259d965"
+                "reference": "89dc9750ec029a1479cba87f27ab936df6edb681"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7a6da5e3e7ad7c749dde806546a35d4d4259d965",
-                "reference": "7a6da5e3e7ad7c749dde806546a35d4d4259d965",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/89dc9750ec029a1479cba87f27ab936df6edb681",
+                "reference": "89dc9750ec029a1479cba87f27ab936df6edb681",
                 "shasum": ""
             },
             "replace": {
@@ -11646,7 +11646,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-05-12T17:44:42+00:00"
+            "time": "2020-08-04T16:24:33+00:00"
         },
         {
             "name": "twig/extensions",
