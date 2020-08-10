@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fac778f8b84b73eca196cc1a7aed381e",
+    "content-hash": "40e80e09e99a493730fa5897452e3f90",
     "packages": [
         {
             "name": "beberlei/doctrineextensions",
@@ -13122,23 +13122,22 @@
         },
         {
             "name": "dvdoug/behat-code-coverage",
-            "version": "v4.1.1",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dvdoug/behat-code-coverage.git",
-                "reference": "2a4daca42f68a66d11b82b1f1813a1d5e4a6e040"
+                "reference": "dd8ea4afc538642ebb1d0e0b343352e228aea6d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dvdoug/behat-code-coverage/zipball/2a4daca42f68a66d11b82b1f1813a1d5e4a6e040",
-                "reference": "2a4daca42f68a66d11b82b1f1813a1d5e4a6e040",
+                "url": "https://api.github.com/repos/dvdoug/behat-code-coverage/zipball/dd8ea4afc538642ebb1d0e0b343352e228aea6d4",
+                "reference": "dd8ea4afc538642ebb1d0e0b343352e228aea6d4",
                 "shasum": ""
             },
             "require": {
                 "behat/behat": "^3.5",
-                "guzzlehttp/guzzle": "^6.0",
-                "php": ">=7.1",
-                "phpunit/php-code-coverage": "^6.0||^7.0||^8.0",
+                "php": "^7.1 || ^8.0",
+                "phpunit/php-code-coverage": "^6.0.1||^7.0.2||^8.0||^9.0",
                 "symfony/config": "^3.4||^4.0||^5.0",
                 "symfony/console": "^3.4||^4.0||^5.0",
                 "symfony/dependency-injection": "^3.4||^4.0||^5.0",
@@ -13148,21 +13147,24 @@
                 "leanphp/behat-code-coverage": "*"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.13",
-                "phpunit/phpunit": "^7.0||^8.0||^9.0"
+                "friendsofphp/php-cs-fixer": "^2.16.3",
+                "phpunit/phpunit": "^7.0||^8.0||^9.0",
+                "symfony/filesystem": "^3.4||^4.0||^5.0"
             },
             "suggest": {
-                "ext-phpdbg": "PHPDBG extension allows you to collect coverage faster than Xdebug",
-                "ext-xdebug": "Xdebug extension is required to collect coverage via Xdebug driver and run tests"
+                "ext-pcov": "PCOV allows you to collect line coverage only, but is faster than Xdebug",
+                "ext-xdebug": "Xdebug allows you to collect line, branch and path coverage"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "DVDoug\\Behat\\CodeCoverage\\": "src/"
-                },
-                "files": [
-                    "src/LeanPHP.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -13201,7 +13203,13 @@
                 "test",
                 "tests"
             ],
-            "time": "2020-02-15T20:40:55+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/dvdoug",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-08-07T11:58:27+00:00"
         },
         {
             "name": "emuse/behat-html-formatter",
