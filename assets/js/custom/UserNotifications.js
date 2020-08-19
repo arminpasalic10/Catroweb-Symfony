@@ -131,7 +131,21 @@ class UserNotifications {
       return
     }
     this.fetchActive = true
-    $.ajax({
+    /* eslint-disable no-undef */
+    const url = baseUrl + 'api/notifications?limit=' + limit + '&offset=' + loadedCount + '&type=' + type
+    $.getJSON(url,
+      function (data) {
+        data.forEach(function (fetched) {
+          self.generateNotificationBody(fetched, idPrefix, $container)
+        })
+        self.updateNoNotificationsPlaceholder(type, data.length)
+        self.fetchActive = false
+      }).fail(function (jqXHR, textStatus, errorThrown) {
+      console.error('Fetching notifications failed for ' + self.category, JSON.stringify(jqXHR), textStatus, errorThrown)
+    })
+
+    // Old version. Remove after before PR
+    /* $.ajax({
       url: self.fetchNotificationsUrl + '/' + limit + '/' + loadedCount + '/' + type,
       type: 'get',
       success: function (data) {
@@ -144,7 +158,7 @@ class UserNotifications {
       error: function (xhr) {
         self.handleError(xhr)
       }
-    })
+    }) */
   }
 
   updateNoNotificationsPlaceholder (type, fetchedAmount) {
@@ -260,9 +274,11 @@ class UserNotifications {
 
   markAsRead (notificationId) {
     const self = this
+    /* eslint-disable no-undef */
+    const url = baseUrl + 'api/notifications/markasread/' + notificationId
     $.ajax({
-      url: self.markAsReadUrl + '/' + notificationId,
-      type: 'get',
+      url: url,
+      type: 'put',
       success: function () {
         self.updateBadgeNumber()
         self.reloadResources(notificationId)
@@ -284,8 +300,10 @@ class UserNotifications {
 
   markAllRead () {
     const self = this
+    /* eslint-disable no-undef */
+    const url = baseUrl + 'api/notifications/markall'
     $.ajax({
-      url: self.markAllSeen,
+      url: url,
       type: 'get',
       success: function () {
         self.updateBadgeNumber()
@@ -297,8 +315,10 @@ class UserNotifications {
   }
 
   updateBadgeNumber () {
-    const self = this
-    const fetchNotifications = new FetchNotifications(self.countNotificationsUrl, 99, 10000)
+    // const self = this
+    /* eslint-disable no-undef */
+    const url = baseUrl + 'api/notifications/count'
+    const fetchNotifications = new FetchNotifications(url, 99, 10000)
     fetchNotifications.run('markAsRead')
   }
 
